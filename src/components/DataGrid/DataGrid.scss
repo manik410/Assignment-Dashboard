@@ -1,0 +1,68 @@
+@mixin FlexClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin FontClass($weight, $size, $height, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
+.dataGrid {
+  padding: 12px;
+  & .header_grid {
+    @include FlexClass();
+    padding: 0px 20px;
+    & .heading {
+      @include FontClass(700, 15px, 19px, #46376f);
+    }
+    & .header_grid_actions {
+      @include FlexClass();
+      & span {
+        padding-right: 15px;
+        @include FontClass(500, 14px, 19px, #7141dc);
+      }
+    }
+  }
+  & .gridTable {
+    margin: 30px 0px 20px 0px;
+    width: 100%;
+    border-collapse: collapse;
+    & td {
+      padding: 8px 0px;
+      text-align: center;
+    }
+    & thead {
+      & tr {
+        @include FontClass(500, 13px, 17px, #b5b5b5);
+      }
+    }
+    & tbody {
+      & tr:first-child {
+        background: #f4f3f8;
+      }
+      & tr:hover {
+        background: #f4f3f8;
+      }
+      & tr {
+        @include FontClass(500, 15px, 18px, #46376f);
+        cursor: pointer;
+      }
+      & td:last-child {
+        color: #7141dc;
+      }
+    }
+  }
+  & .borderBottom {
+    border: 0.766541px dashed #46376f;
+  }
+  & .footerContent {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    & img {
+      padding-right: 20px;
+    }
+  }
+}

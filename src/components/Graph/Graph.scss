@@ -1,0 +1,120 @@
+@mixin FlexClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin FontClass($weight, $size, $height, $color) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
+.graph {
+  padding: 12px;
+  & .graph_header {
+    @include FlexClass();
+    padding: 0px 20px;
+    & .heading {
+      @include FontClass(700, 15px, 19px, #46376f);
+      & .subHeading {
+        margin: 10px 0px;
+        @include FontClass(500, 13px, 17px, #9f9f9f);
+      }
+    }
+    & .graph_actions {
+      @include FlexClass();
+      & span {
+        padding-right: 15px;
+        @include FontClass(500, 14px, 19px, #7141dc);
+      }
+    }
+  }
+  & .borderBottom {
+    border: 0.766541px dashed #46376f;
+  }
+  & .footerContent {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    & img {
+      padding-right: 10px;
+    }
+  }
+  & .graphLine {
+    @include FlexClass();
+    width: 88%;
+    margin: 14px 20px;
+    & .progress_bar {
+      height: 38px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      & .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        top: -5px;
+        left: 105%;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+    & .progress_bar:hover {
+      & .tooltiptext {
+        visibility: visible;
+      }
+      & .tooltiptext::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent black transparent transparent;
+      }
+    }
+    & .score_data {
+      @include FontClass(500, 14px, 17px, #9f9f9f);
+    }
+  }
+  & .graph_meta {
+    @include FlexClass();
+    width: 95%;
+    margin: auto;
+    & .graph_meta_labels {
+      display: flex;
+      align-self: baseline;
+      padding: 5px 0px;
+      width: 20%;
+      margin: auto;
+      & .dot {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      & .info {
+        @include FontClass(400, 12px, 12px, #46376f);
+        margin-left: 5px;
+      }
+    }
+  }
+  & .graph_summary {
+    @include FlexClass();
+    width: 90%;
+    margin: 20px auto;
+    & .parent_summary {
+      :first-child {
+        @include FontClass(700, 18px, 22px, #46376f);
+      }
+      :last-child {
+        @include FontClass(500, 15px, 17px, #46376f);
+      }
+    }
+  }
+}

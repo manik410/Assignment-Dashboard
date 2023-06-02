@@ -1,0 +1,44 @@
+@mixin FlexClass($justify) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+}
+.dashboard_header {
+  @include FlexClass(space-between);
+  width: 90%;
+  margin: auto;
+  & .dashboard_content {
+    @include FlexClass(space-between);
+    & .header_content {
+      font-weight: 700;
+      font-size: 22.279px;
+      line-height: 27px;
+      color: #0570b0;
+    }
+  }
+  & .dashboard_actions {
+    @include FlexClass(space-between);
+    & img {
+      height: 22px;
+      padding: 0px 10px;
+      cursor: pointer;
+    }
+  }
+}
+.dashboard_body {
+  @include FlexClass(space-between);
+  width: 90%;
+  margin: 30px auto;
+  & .childone {
+    background: #ffffff;
+    border-radius: 8.38233px;
+    min-height: 200px;
+    width: 48%;
+  }
+  & .childtwo {
+    background: #ffffff;
+    border-radius: 8.38233px;
+    min-height: 200px;
+    width: 48%;
+  }
+}

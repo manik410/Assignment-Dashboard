@@ -1,0 +1,11 @@
+.borderBottom {
+  border: 0.766541px dashed #46376f;
+}
+.footerContent {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  & img {
+    padding-right: 10px;
+  }
+}
